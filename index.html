@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="iOSスタンバイモード風スマートディスプレイ - 時計、天気、ニュース、マーケット情報">
+
+    <title>Smart Display</title>
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icons/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 左側エリア -->
+        <section class="left-panel">
+            <!-- 時計 -->
+            <div class="clock-section">
+                <div class="time-display">
+                    <span id="hours">00</span>
+                    <span class="time-separator">&nbsp;</span>
+                    <span id="minutes">00</span>
+                    <!-- 秒表示をここに削除 -->
+                </div>
+            </div>
+
+            <!-- 下部情報コンテナ (日付・天気 + 秒) -->
+            <div class="bottom-info-container">
+                <!-- 秒表示エリア (左側 30%) -->
+                <div class="seconds-area">
+                    <span id="seconds" class="seconds-digital">00</span>
+                </div>
+
+                <!-- 日付・天気グループ (右側 70%) -->
+                <div class="info-group">
+                    <!-- 日付・曜日 -->
+                    <div class="date-section glass-card">
+                        <div class="date-main">
+                            <span id="month" class="date-num">1</span>
+                            <span class="date-unit">月</span>
+                            <span id="day" class="date-num">6</span>
+                            <span class="date-unit">日</span>
+                            <span id="dayOfWeek" class="date-weekday">月曜日</span>
+                        </div>
+                    </div>
+
+                    <!-- 天気 -->
+                    <div class="weather-section glass-card">
+                        <span class="weather-icon" id="weatherIcon">☀️</span>
+                        <span class="weather-temp" id="temperature">--°</span>
+                        <span class="weather-desc" id="weatherDesc">--</span>
+                        <div class="weather-details">
+                            <div class="weather-detail-item">
+                                <span class="detail-label">降水</span>
+                                <span class="detail-value" id="precipitation">--%</span>
+                            </div>
+                            <div class="weather-detail-item">
+                                <span class="detail-label">最高</span>
+                                <span class="detail-value temp-high" id="tempHigh">--°</span>
+                            </div>
+                            <div class="weather-detail-item">
+                                <span class="detail-label">最低</span>
+                                <span class="detail-value temp-low" id="tempLow">--°</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 右側エリア -->
+        <section class="right-panel">
+            <!-- ニュース -->
+            <div class="news-section glass-card">
+                <div class="news-list" id="newsList">
+                    <div class="news-item skeleton">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                    </div>
+                    <div class="news-item skeleton">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                    </div>
+                    <div class="news-item skeleton">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- マーケット -->
+            <div class="market-section glass-card">
+                <div class="market-grid" id="marketGrid">
+                    <div class="market-item">
+                        <span class="market-label">日経平均</span>
+                        <span class="market-value" id="nikkei">--,---</span>
+                        <span class="market-change" id="nikkeiChange">--.--</span>
+                    </div>
+                    <div class="market-item">
+                        <span class="market-label">NYダウ</span>
+                        <span class="market-value" id="dow">--,---</span>
+                        <span class="market-change" id="dowChange">--.--</span>
+                    </div>
+                    <div class="market-item">
+                        <span class="market-label">USD/JPY</span>
+                        <span class="market-value" id="usdjpy">---.--</span>
+                        <span class="market-change" id="usdjpyChange">--.--</span>
+                    </div>
+                    <div class="market-item">
+                        <span class="market-label">日本10年金利</span>
+                        <span class="market-value" id="jgb">-.---</span>
+                        <span class="market-change" id="jgbChange">--.--</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>
